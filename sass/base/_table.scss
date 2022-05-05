@@ -1,0 +1,120 @@
+.budget-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: 840px) {
+        padding-top: 35px;
+        padding-left: 15px;
+        padding-right: 15px;
+        flex-direction: column;      
+    }
+}
+
+.budget__col {
+    width: 390px;
+
+    @media (max-width: 840px) {
+        width: 100%;
+    }
+
+    &:not(:last-child) {
+        margin-right: 30px;
+    }
+
+    @media (max-width: 840px) {
+        margin-bottom: 35px;
+    }
+}
+
+.title {
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+
+    &_income {
+        color: #23a868;
+    }
+    &_expenses {
+        color: #dd5151;
+    }
+}
+
+.budget-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    &__item {
+        background: #f5f5f5;
+    }
+
+    &:nth-child(even) {
+        background-color: #fdfdfd;
+    }
+}
+
+.item {
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+
+    &__title {
+        color: #000000;
+        font-size: 18px;
+        line-height: 1;
+    }
+
+    &__right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        transition: all 0.2s ease-in;
+    }
+
+    &__amount {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        color: #23a868;
+        font-size: 18px;
+        line-height: 1.5;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+
+    &__badge {
+        padding-left: 10px;
+        width: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    &__remove {
+        display: none;
+        padding: 0;
+        /* margin-left: 15px; */
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+    }
+}
+
+.item_expense .item__amount {
+    color: #dd5151;
+}
+
+.item:hover .item__amount {
+    transform: translateX(-10px);
+}
+
+.item:hover .item__remove {
+    display: block;
+}

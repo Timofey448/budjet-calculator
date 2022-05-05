@@ -1,0 +1,135 @@
+.header {
+    line-height: 1;
+    padding: 50px 15px 55px;
+    background: linear-gradient(
+        0deg,
+        rgba(32, 156, 194, 0.185),
+        rgba(61, 204, 240, 0.438)
+    ),
+    url("../../img/bg.jpg");
+    background-position: center;
+    background-size: cover;
+
+    &__title, &__value {
+        @media (max-width:840px) {
+            min-width: auto;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        margin-bottom: 20px;
+        // min-width: 600px;
+        color: #ffffff;  
+        text-align: center;
+        font-weight: 300;
+        font-size: 22px;
+        text-align: center;
+    }
+
+    &__value {
+        margin-bottom: 40px;
+        // min-width: 600px;
+        color: #ffffff;
+        font-size: 42px;
+        text-align: center;
+
+        @media (max-width:840px) {
+            font-size: 34px;
+        }
+    }
+
+    &__info {
+        margin: 0 auto;
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.info-box {
+    padding-left: 25px;
+    padding-right: 25px;
+    width: 420px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;    
+    background: #727272;
+    color: #ffffff;
+
+    @media (max-width:840px) {
+        padding-left: 10px;
+        padding-right: 10px;
+        width: auto;
+        max-width: 420px;
+    }
+
+    &_income {
+        background: #2fccaa;
+    }
+    &_expenses {
+        background: #dd5151;
+    }
+
+    &__title {
+        font-size: 18px;
+        text-transform: uppercase;
+
+        @media (max-width:840px) {
+            font-size: 16px;
+        }
+    }
+
+    &__right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        text-align: left;
+    }
+
+    &__value {
+        flex-grow: 1;
+        font-size: 20px;
+        text-align: left;
+
+        &:not(:last-child) {
+            margin-right: 15px;
+
+            @media (max-width:840px) {
+                margin-right: 10px;
+            }
+        }
+
+        @media (max-width:840px) {
+            font-size: 18px;
+        }
+    }
+
+    &__percents {
+        width: 70px;
+        display: flex;
+        justify-content: flex-end;
+
+        @media (max-width:840px) {
+            width: 50px;
+        }
+    }
+}
+
+.badge {
+    padding: 4px 5px;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+    border-radius: 4px;
+    font-weight: 400;
+    font-size: 12px;
+
+    &_dark {
+        background-color: rgba(221, 81, 81, 0.2);
+        color: #dd5151;
+    }
+}

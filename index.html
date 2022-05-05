@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Бюджет</title>
+        <link rel="stylesheet" href="./css/main.css">  
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" />
+    </head>
+    <body>
+        <header class="header">
+            <div class="header__title">
+                Бюджет за
+                <span id="month">Март</span>
+                <span id="year">2020</span>
+            </div>
+            <div class="header__value" id="budget-value">+ 2,345.64</div>
+
+            <div class="header__info info-box info-box_income">
+                <div class="info-box__title">Доходы</div>
+                <div class="info-box__right">
+                    <div id="income-label" class="info-box__value">+ 14,300.00</div>
+                    <div class="info-box__percents"></div>
+                </div>
+            </div>
+            <div class="header__info info-box info-box_expenses">
+                <div class="info-box__title">расходы</div>
+                <div class="info-box__right">
+                    <div id="expense-label" class="info-box__value">- 1,954.00</div>
+                    <div class="info-box__percents">
+                        <div id="expense-percent-label" class="badge">
+                            1145%
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Input form -->
+        <div class="form-wrapper">
+            <form class="form" id="budget-form" action="">
+                <select
+                    id="input__type"
+                    class="form__input"
+                    name="action"
+                    id="action"
+                >
+                    <option value="inc">+</option>
+                    <option value="exp">-</option>
+                </select>
+                <input
+                    id="input__description"
+                    class="form__input form__input_description"
+                    type="text"
+                    placeholder="Описание"
+                />
+                <input
+                    id="input__value"
+                    class="form__input form__input_sum"
+                    type="number"
+                    placeholder="Сумма"
+                />
+                <button id="submit-btn" class="form__button">
+                    Добавить
+                    <img
+                        class="form__button-icon"
+                        src="./img/check-square.svg"
+                        alt="icon"
+                    />
+                </button>
+            </form>
+        </div>
+        <!-- // Input form -->
+
+        <!-- Budget table -->
+        <section class="budget-section" id="budget-table">
+            <div class="budget__col">
+                <h2 class="title title_income">Доходы</h2>
+                <ul id="income__list" class="budget-list"></ul>
+            </div>
+            <div class="budget__col">
+                <h2 class="title title_expenses">Расходы</h2>
+                <ul id="expenses__list" class="budget-list"></ul>
+            </div>
+        </section>
+        <!-- // Budget table -->
+
+        <!-- Тестовые данные -->
+        <!-- <script src="js/test-data.js"></script> -->
+
+        <!-- Модули приложения -->
+        <script src="js/model.js"></script>
+        <script src="js/view.js"></script>
+        <script src="js/controller.js"></script>
+    </body>
+</html>
