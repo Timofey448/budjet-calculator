@@ -1,12 +1,7 @@
 .header {
     line-height: 1;
-    padding: 50px 15px 55px;
-    background: linear-gradient(
-        0deg,
-        rgba(32, 156, 194, 0.185),
-        rgba(61, 204, 240, 0.438)
-    ),
-    url("budjet-calculator/img/bg.jpg");
+    padding: 50px 15px 55px;    
+    background-image: url(../../img/background.jpg);
     background-position: center;
     background-size: cover;
 
