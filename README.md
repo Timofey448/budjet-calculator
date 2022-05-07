@@ -1,5 +1,5 @@
 # budget-calculator
-https://timofey448.github.io/budget-calculator/
+https://timofey448.github.io/budjet-calculator/
 
 Простой калькулятор расчета бюджета на чистом JS.
 
