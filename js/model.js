@@ -1,6 +1,6 @@
 let modelController = (function() {
 
-  let Income = function(id, description, value) {
+    let Income = function(id, description, value) {
         this.id = id;
         this.description = description;
         this.value = value;
@@ -26,35 +26,41 @@ let modelController = (function() {
     }
 
     function addItem (type, desc, val){
-      let newItem, ID;
+        var newItem, ID;
 
+        // Генерация ID
         if (data.allItems[type].length > 0 ) {
-          let lastIndex = data.allItems[type].length - 1;
+            var lastIndex = data.allItems[type].length - 1;
             ID = data.allItems[type][lastIndex].id + 1;
         } else {
             ID = 0;
         }
-       
+
+        // В зависимости от типа записи создаем объект
         if ( type === "inc") {
             newItem = new Income(ID, desc, parseFloat(val));
         } else if ( type === "exp" ) {
             newItem = new Expense(ID, desc, parseFloat(val));
         }
+
+        // Запись объекта в структуру данных
         data.allItems[type].push(newItem);
 
+        // Возвращение нового объекта
         return newItem;
+
     }
 
     function deleteItem (type, id){
 
+        // 1. Нахождение записи по ID в массиве с доходами или расходами.
         let ids = data.allItems[type].map(function(item){
             return item.id
         });
-        console.log(ids);
 
         index = ids.indexOf(id);
-        console.log(index)
 
+        // 2. Удаление найденной записи из массива по индексу
         if ( index !== -1) {
             data.allItems[type].splice(index, 1);
         }       
@@ -70,11 +76,14 @@ let modelController = (function() {
     }
 
     function calculateBudget(){
-
+        // Расчет всех Доходов и расходов
         data.totals.inc = calculateTotalSum("inc");
         data.totals.exp = calculateTotalSum("exp");
+        
+        // Расчет общего Бюджета
         data.budget = data.totals.inc - data.totals.exp;
 
+        // Расчет % для расходов
         if (data.totals.inc > 0 ) {
             data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
         } else {

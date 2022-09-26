@@ -66,7 +66,7 @@ let viewController = (function() {
 
         if (type === "inc") {
             containerElement = DOMstrings.incomeContainer;
-            html = `<li id="inc-%id%" class="budget-list__item item item_income">
+            html = `<li id="inc-%id%" class="budget-list__item item item--income">
                         <div class="item__title">%description%</div>
                         <div class="item__right">
                             <div class="item__amount">%value%</div>
@@ -80,13 +80,13 @@ let viewController = (function() {
                     </li>`;
         } else {
             containerElement = DOMstrings.expenseContainer;
-            html = `<li id="exp-%id%" class="budget-list__item item item_expense">
+            html = `<li id="exp-%id%" class="budget-list__item item item--expense">
                         <div class="item__title">%description%</div>
                         <div class="item__right">
                             <div class="item__amount">
                                 %value%
                                 <div class="item__badge">
-                                    <div class="item__percent badge badge_dark">
+                                    <div class="item__percent badge badge--dark">
                                         15%
                                     </div>
                                 </div>
@@ -117,7 +117,7 @@ let viewController = (function() {
         inputVal.value = "";
     }
 
-    function updateBudget (obj){
+    function updateBudget(obj){
         let type;
 
         if (obj.budget > 0) {
@@ -131,7 +131,7 @@ let viewController = (function() {
         document.querySelector(DOMstrings.expensesLabel).textContent = formatNumber(obj.totalExp, "exp");
 
         if (obj.percentage > 0) {
-            document.querySelector(DOMstrings.expensesPercentLabel).textContent = obj.percentage + "%";
+            document.querySelector(DOMstrings.expensesPercentLabel).textContent = obj.percentage;
         } else {
             document.querySelector(DOMstrings.expensesPercentLabel).textContent = "--";
         }
@@ -145,9 +145,7 @@ let viewController = (function() {
 
         items.forEach(function(item){
 
-            console.log(item);
-
-            var el = document.getElementById(`exp-${item[0]}`).querySelector(".item__percent");
+            let el = document.getElementById(`exp-${item[0]}`).querySelector(".item__percent");
 
             if ( item[1] >= 0) {
                 el.parentElement.style.display = "block";
